@@ -1,46 +1,33 @@
 type RatingPropsType = {
-  value: number
+  value: 1 | 2 | 3 | 4 | 5
 }
 function Rating(props: RatingPropsType) {
-  switch (props.value) {
-    case 1: return (
-      <div>
-        <Star selected={true} />
-        <Star selected={false} />
-        <Star selected={false} />
-        <Star selected={false} />
-        <Star selected={false} />
-      </div>
-    );
-    case 2: return (
-      <div>
-        <Star selected={true} />
-        <Star selected={true} />
-        <Star selected={true} />
-        <Star selected={true} />
-        <Star selected={true} />
-      </div>
-    );
-
-    default: return (
-      <div>
-        <Star selected={true} />
-        <Star selected={true} />
-        <Star selected={true} />
-        <Star selected={true} />
-        <Star selected={true} />
-      </div>
-    );
-  };
+  // const star = []
+  // for (let i = 0; i < 5; i++) {
+  //   if (i < props.value) {
+  //     star.push(<Star selected={true} />)
+  //   } else {
+  //     star.push(<Star selected={false} />)
+  //   }
+  // }
+  return (
+    <div>
+      <Star selected={props.value > 0} />
+      <Star selected={props.value > 1} />
+      <Star selected={props.value > 2} />
+      <Star selected={props.value > 3} />
+      <Star selected={props.value > 4} />
+    </div>
+  )
 }
 
 type StarPropsType = {
   selected: boolean
 }
 function Star(props: StarPropsType) {
-  switch (props.selected) {
-    case true: return <span><b>Star </b></span>;
-    default: return <span>Star </span>;
+  if (props.selected) {
+    return <span><b>Star </b></span>;
   }
+  return <span>Star </span>;
 }
 export default Rating
