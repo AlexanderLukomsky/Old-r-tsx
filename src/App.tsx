@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
 import Accordion from './Components/Accordion/Accordion';
+import { NotControlledAccordion } from './Components/NotControlledAccordion/NotControlledAccordion';
+import { NotControlledRating } from './Components/NotControlledRating/NotControlledRating';
 import Rating from './Components/Rating/Rating';
+import { Switcher } from './Components/Switcher/Switcher';
 
 
 
@@ -20,6 +23,11 @@ function App() {
       <Rating value={3} />
       <Rating value={4} />
       <Rating value={5} />
+      <Switcher />
+      <NotControlledAccordion titleValue={'NotControlledAccordion - 1'} />
+      <NotControlledAccordion titleValue={'NotControlledAccordion - 2'} />
+      <NotControlledRating />
+      <NotControlledRating />
     </div>
   );
 }
