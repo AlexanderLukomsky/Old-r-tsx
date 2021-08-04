@@ -1,22 +1,24 @@
 type AccordionPropsType = {
   titleValue: string
-  collapsed?: boolean
+  collapsed: boolean
+  setCollapsed: () => void
 }
 function Accordion(props: AccordionPropsType) {
   return (
     <div>
-      <AccordionTitle title={props.titleValue} />
-      {(props.collapsed === false || !props.collapsed) && <AccordionBody />}
+      <AccordionTitle title={props.titleValue} setCollapsed={props.setCollapsed} />
+      {(!props.collapsed) && <AccordionBody />}
 
     </div>
   );
 };
 type AccordionTitlePropsType = {
   title: string
+  setCollapsed: () => void
 }
 function AccordionTitle(props: AccordionTitlePropsType) {
   return (
-    <h3>{props.title}</h3>
+    <h3 onClick={props.setCollapsed}> {props.title}</h3>
   );
 };
 

@@ -2,8 +2,8 @@ import { useState } from "react";
 
 
 export function NotControlledRating() {
-  let [value, setValue] = useState(1)
-  const setValueFoo = (value: number) => {
+  let [value, setValue] = useState(0)
+  const setValueFoo = (value: 1 | 2 | 3 | 4 | 5) => {
     setValue(value)
   }
   return (
@@ -19,16 +19,16 @@ export function NotControlledRating() {
 
 type StarPropsType = {
   selected: boolean
-  starValue: number
-  setValueFoo: (value: number) => void
+  starValue: 1 | 2 | 3 | 4 | 5
+  setValueFoo: (value: 1 | 2 | 3 | 4 | 5) => void
 }
 function Star(props: StarPropsType) {
-  if (props.selected) {
-    return (
-      <span onClick={() => props.setValueFoo(props.starValue)}>
-        <b>Star </b>
-      </span>
-    )
-  }
-  return <span onClick={() => props.setValueFoo(props.starValue)}>Star </span>;
+  return (
+    <span onClick={() => props.setValueFoo(props.starValue)}>
+      {
+        props.selected ? <b>Star </b> : 'Star '
+      }
+    </span>
+
+  )
 }
