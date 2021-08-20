@@ -17,7 +17,6 @@ function App() {
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [collapsed2, setCollapsed2] = useState<boolean>(false)
   const [switcher, setSwitcher] = useState<boolean>(false)
-
   return (
     <div className="App">
       <AppTitle title={'App title - 1'} />

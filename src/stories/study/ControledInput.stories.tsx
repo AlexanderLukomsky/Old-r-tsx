@@ -1,5 +1,5 @@
 
-import { ChangeEvent, useState, MouseEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 export default {
   title: 'ControledInput',

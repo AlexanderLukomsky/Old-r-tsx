@@ -5,14 +5,6 @@ type RatingPropsType = {
   setRatingValue: (value: ratingValueType) => void
 }
 function Rating(props: RatingPropsType) {
-  // const star = []
-  // for (let i = 0; i < 5; i++) {
-  //   if (i < props.value) {
-  //     star.push(<Star selected={true} />)
-  //   } else {
-  //     star.push(<Star selected={false} />)
-  //   }
-  // }
   return (
     <div>
       <Star selected={props.value > 0} setRatingValue={props.setRatingValue} ratingValue={1} />
