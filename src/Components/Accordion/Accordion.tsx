@@ -1,13 +1,18 @@
-type AccordionPropsType = {
+export type AccordionPropsType = {
   titleValue: string
   collapsed: boolean
   setCollapsed: () => void
+  item: UsersType[]
+}
+type UsersType = {
+  name: string
+  id: string
 }
 function Accordion(props: AccordionPropsType) {
   return (
     <div>
       <AccordionTitle title={props.titleValue} setCollapsed={props.setCollapsed} />
-      {(!props.collapsed) && <AccordionBody />}
+      {(!props.collapsed) && <AccordionBody item={props.item} />}
 
     </div>
   );
@@ -21,13 +26,13 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     <h3 onClick={props.setCollapsed}> {props.title}</h3>
   );
 };
-
-function AccordionBody() {
+type AccordionBodyPropsType = {
+  item: UsersType[]
+}
+function AccordionBody({ item, ...props }: AccordionBodyPropsType) {
   return (
     <ul>
-      <li >1</li>
-      <li>2</li>
-      <li>3</li>
+      {item.map(el => <li key={el.id}>{el.name}</li>)}
     </ul>
   );
 };
