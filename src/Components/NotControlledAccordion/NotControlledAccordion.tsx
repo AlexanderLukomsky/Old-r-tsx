@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useReducer } from "react";
+import { reducer } from "./reducer";
+const TOGGLE_COLLAPSED = 'TOGGLE-COLLAPSED'
 type propsType = {
   titleValue: string
 }
+
+
 export function NotControlledAccordion(props: propsType) {
-  let [collapsed, setCollapsed] = useState(false)
+  const [state, dispatch] = useReducer(reducer, { collapsed: false })
   const setCollapsedFoo = () => {
-    setCollapsed(!collapsed)
+    dispatch({ type: TOGGLE_COLLAPSED })
   }
   return (
     <div>
       <AccordionTitle title={props.titleValue} setCollapsedFoo={setCollapsedFoo} />
-      {!collapsed && <AccordionBody />}
+      {!state.collapsed && <AccordionBody />}
 
     </div>
   );
